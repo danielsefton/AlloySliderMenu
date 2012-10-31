@@ -1,0 +1,39 @@
+"#leftMenu": {
+	top: "0dp",
+	left: "0dp",
+	width: "250dp",
+	zIndex: "1"
+},
+"#win": {
+	left: "0dp",
+	zIndex: "10",
+	backgroundColor : 'white',
+},
+"#innerwin": {
+	backgroundColor : 'white',
+	title: "Slider Menu",
+	barColor : "black",
+	left : "0",
+	zIndex : "10"
+},
+"#shadowview": {
+	shadowColor:"black",
+    shadowOffset:{x:"0",y:"0"},
+    shadowRadius:"2.5",
+    ZIndex: "10"
+},
+"#mymap": {
+	touchEnabled:"false"
+},
+"#nav": {
+	left : "0",
+	width : Ti.Platform.displayCaps.platformWidth
+},
+"#button": {
+	image: "/ds.slideMenu/ButtonMenu.png",
+	left : "10",
+	top : "7",
+	width : "35",
+	height : "30",
+	style : "none"
+}

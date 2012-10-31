@@ -1,0 +1,8 @@
+<Alloy>
+  <TableViewRow id="row">
+    <ImageView id="icon"/>
+    <View class="vgroup">
+      <Label id="title"/>
+    </View>
+  </TableViewRow>
+</Alloy>

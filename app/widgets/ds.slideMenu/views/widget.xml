@@ -1,0 +1,16 @@
+<Alloy>
+	<Window id="leftMenu">
+		<TableView id="tableView" />
+	</Window>
+	<Window id="win">
+		<View id="shadowview">
+			<NavigationGroup id="nav">
+				<Window id="innerwin"><TabGroup id="tabgroup"><Tab id="leftTab"><Window><Label>View 1</Label></Window>
+        </Tab>
+        <Tab id="rightTab"><Window><Label>View 1</Label></Window>  
+        </Tab></TabGroup></Window>
+			</NavigationGroup>
+			<Button id="button" />
+		</View>
+	</Window>
+</Alloy>
