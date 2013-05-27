@@ -2,6 +2,12 @@
 	top: "0dp",
 	left: "0dp",
 	width: "250dp",
+	zIndex: "2"
+},
+"#rightMenu": {
+	top: "0dp",
+	right: "0dp",
+	width: "250dp",
 	zIndex: "1"
 },
 "#navview": {
@@ -15,14 +21,15 @@
 "#movableview": {
 	left: "0",
 	zIndex: "10",
-	backgroundColor : 'white'
+	width : Ti.Platform.displayCaps.platformWidth
 },
 "#contentview": {
 	left : "0dp",
 	width : Ti.Platform.displayCaps.platformWidth,
 	height : Ti.UI.Fill,
 	top : "44",
-	zIndex : "10"
+	zIndex : "10",
+	backgroundColor : 'white'
 },
 "#shadowview": {
 	shadowColor:"black",
