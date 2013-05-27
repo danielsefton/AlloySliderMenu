@@ -1,5 +1,5 @@
 <Alloy>
-	<Window id="view3">
-		<Label>View 3</Label>
-	</Window>
+	<View id="view3">
+		<View ns="Ti.Map" id="timap" />
+	</View>
 </Alloy>

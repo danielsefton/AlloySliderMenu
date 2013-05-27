@@ -1,16 +1,16 @@
 <Alloy>
-	<Window id="leftMenu">
-		<TableView id="tableView" />
-	</Window>
-	<Window id="win">
-		<View id="shadowview">
-			<NavigationGroup id="nav">
-				<Window id="innerwin"><TabGroup id="tabgroup"><Tab id="leftTab"><Window><Label>View 1</Label></Window>
-        </Tab>
-        <Tab id="rightTab"><Window><Label>View 1</Label></Window>  
-        </Tab></TabGroup></Window>
-			</NavigationGroup>
-			<Button id="button" />
+	<View id="containerview">
+		<View id="leftMenu">
+			<TableView id="tableView" />
 		</View>
-	</Window>
+		<View id="movableview">
+			<View id="shadowview">
+				<View id="navview">
+					<Button id="leftButton" />
+					<Button id="rightButton" />
+				</View>
+				<View id="contentview" />
+			</View>
+		</View>
+	</View>
 </Alloy>

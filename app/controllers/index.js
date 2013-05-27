@@ -59,16 +59,16 @@ for ( i = 0; i < 4; i++) {
 $.ds.tableView.data = data;
 
 var currentView = Alloy.createController("view1").getView();
-$.ds.innerwin.add(currentView);
+$.ds.contentview.add(currentView);
 
 // Swap views on menu item click
 $.ds.tableView.addEventListener('click', function selectRow(e) {
 	if (currentView.id != e.row.customView) {
-		$.ds.innerwin.remove(currentView);
+		$.ds.contentview.remove(currentView);
 		currentView = Alloy.createController(e.row.customView).getView();
-		$.ds.innerwin.add(currentView);
+		$.ds.contentview.add(currentView);
 	}
-	$.ds.toggleSlider();
+	$.ds.toggleLeftSlider();
 });
 
 // Set row title highlight colour

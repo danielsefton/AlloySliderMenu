@@ -4,16 +4,24 @@
 	width: "250dp",
 	zIndex: "1"
 },
-"#win": {
+"#navview": {
+	top: "0dp",
 	left: "0dp",
-	zIndex: "10",
-	backgroundColor : 'white',
+	width : Ti.Platform.displayCaps.platformWidth,
+	height : "44",
+	backgroundImage : '/ds.slideMenu/NavBackground.png',
+	zIndex : "10"
 },
-"#innerwin": {
-	backgroundColor : 'white',
-	title: "Slider Menu",
-	barColor : "black",
-	left : "0",
+"#movableview": {
+	left: "0",
+	zIndex: "10",
+	backgroundColor : 'white'
+},
+"#contentview": {
+	left : "0dp",
+	width : Ti.Platform.displayCaps.platformWidth,
+	height : Ti.UI.Fill,
+	top : "44",
 	zIndex : "10"
 },
 "#shadowview": {
@@ -22,18 +30,21 @@
     shadowRadius:"2.5",
     ZIndex: "10"
 },
-"#mymap": {
-	touchEnabled:"false"
-},
-"#nav": {
+"#leftButton": {
+	backgroundImage : 'none',
+	image : "/ds.slideMenu/ButtonMenu.png",
 	left : "0",
-	width : Ti.Platform.displayCaps.platformWidth
+	top : "0",
+	width : "60",
+	height : "44",
+	style : "none"
 },
-"#button": {
-	image: "/ds.slideMenu/ButtonMenu.png",
-	left : "10",
-	top : "7",
-	width : "35",
-	height : "30",
+"#rightButton": {
+	backgroundImage : 'none',
+	image : "/ds.slideMenu/ButtonMenu.png",
+	right : "0",
+	top : "0",
+	width : "60",
+	height : "44",
 	style : "none"
 }

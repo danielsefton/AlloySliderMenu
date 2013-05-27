@@ -1,60 +1,129 @@
-var animateLeft = Ti.UI.createAnimation({
+var animateRight = Ti.UI.createAnimation({
 	left : 250,
 	curve : Ti.UI.ANIMATION_CURVE_EASE_OUT,
 	duration : 150
 });
 
-var animateRight = Ti.UI.createAnimation({
+var animateReset = Ti.UI.createAnimation({
 	left : 0,
 	curve : Ti.UI.ANIMATION_CURVE_EASE_OUT,
 	duration : 150
 });
 
-var touchStartX = 0;
-var touchStarted = false;
-
-$.innerwin.addEventListener('touchstart', function(e) {
-	touchStartX = parseInt(e.x, 10);
+var animateLeft = Ti.UI.createAnimation({
+	left : -250,
+	curve : Ti.UI.ANIMATION_CURVE_EASE_OUT,
+	duration : 150
 });
 
-$.innerwin.addEventListener('touchend', function(e) {
-	touchStarted = false;
-	if ($.win.left >= 150) {
-		$.win.animate(animateLeft);
+var touchStartX = 0;
+var touchRightStarted = false;
+var touchLeftStarted = false;
+var buttonPressed = false;
+var hasSlided = false;
+
+$.movableview.addEventListener('touchstart', function(e) {
+	touchStartX = e.x;
+});
+
+$.movableview.addEventListener('touchend', function(e) {
+	if (buttonPressed) {
+		buttonPressed = false;
+		return;
+	}
+	if ($.movableview.left >= 150 && touchRightStarted) {
+		$.leftButton.touchEnabled = false;
+		$.movableview.animate(animateRight);
+		hasSlided = true;
+	}
+	else if ($.movableview.left <= -150 && touchLeftStarted) {
+		$.rightButton.touchEnabled = false;
+		$.movableview.animate(animateLeft);
 		hasSlided = true;
 	} else {
-		$.win.animate(animateRight);
+		$.leftButton.touchEnabled = true;
+		$.rightButton.touchEnabled = true;
+		$.movableview.animate(animateReset);
 		hasSlided = false;
 	}
+	Ti.App.fireEvent("sliderToggled", {
+		hasSlided : hasSlided
+    });
+	touchRightStarted = false;
+	touchLeftStarted = false;
 });
 
-$.innerwin.addEventListener('touchmove', function(e) {
-	// TODO: Use convertPointToView when fixed in SDK.
-	//var coords = e.source.convertPointToView({x:e.x,y:e.y}, $.innerwin);
-	//var x = parseInt(coords.x, 10);
-	var x = parseInt(e.globalPoint.x, 10);
-	var newLeft = x - touchStartX;
-	if (touchStarted) {
-		if (newLeft <= 250 && newLeft >= 0) {
-			$.win.left = newLeft;
+$.movableview.addEventListener('touchmove', function(e) {
+	var coords = $.movableview.convertPointToView({
+		x : e.x,
+		y : e.y
+	}, $.containerview);
+	var newLeft = coords.x - touchStartX;
+	if ((touchRightStarted && newLeft <= 250 && newLeft >= 0) || 
+		(touchLeftStarted && newLeft <= 0 && newLeft >= -250)) {
+		$.movableview.left = newLeft;
+	}
+	else {
+		// Sometimes newLeft goes beyond its bounds so the view gets stuck.
+		// This is a hack to fix that.
+		if ((touchRightStarted && newLeft < 0) || (touchLeftStarted && newLeft > 0)) {
+			$.movableview.left = 0;
+		}
+		else if (touchRightStarted && newLeft > 250) {
+			$.movableview.left = 250;
+		}
+		else if (touchLeftStarted && newLeft < -250) {
+			$.movableview.left = -250;
 		}
 	}
-	if (newLeft > 30) {
-		touchStarted = true;
+	if (newLeft > 5 && !touchLeftStarted) {
+		touchRightStarted = true;
+	}
+	else if (newLeft < -5 && !touchRightStarted) {
+		touchLeftStarted = true;
 	}
 });
 
-$.button.addEventListener('singletap', function(e) {
-	$.toggleSlider();
+$.leftButton.addEventListener('touchend', function(e) {
+	if (!touchRightStarted && !touchLeftStarted) {
+		buttonPressed = true;
+		$.toggleLeftSlider();
+	}
 });
 
-var hasSlided = false;
-exports.toggleSlider = function() {
+$.rightButton.addEventListener('touchend', function(e) {
+	if (!touchRightStarted && !touchLeftStarted) {
+		buttonPressed = true;
+		$.toggleRightSlider();
+	}
+});
+
+exports.toggleLeftSlider = function() {
 	if (!hasSlided) {
-		$.win.animate(animateLeft);
+		$.leftButton.touchEnabled = false;
+		$.movableview.animate(animateRight);
 		hasSlided = true;
 	} else {
-		$.win.animate(animateRight);
+		$.leftButton.touchEnabled = true;
+		$.movableview.animate(animateReset);
 		hasSlided = false;
 	}
+	Ti.App.fireEvent("sliderToggled", {
+		hasSlided : hasSlided
+    });
+}
+
+exports.toggleRightSlider = function() {
+	if (!hasSlided) {
+		$.rightButton.touchEnabled = false;
+		$.movableview.animate(animateLeft);
+		hasSlided = true;
+	} else {
+		$.rightButton.touchEnabled = true;
+		$.movableview.animate(animateReset);
+		hasSlided = false;
+	}
+	Ti.App.fireEvent("sliderToggled", {
+		hasSlided : hasSlided
+    });
 }
