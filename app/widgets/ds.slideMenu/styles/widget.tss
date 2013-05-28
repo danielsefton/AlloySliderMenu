@@ -2,25 +2,26 @@
 	top: "0dp",
 	left: "0dp",
 	width: "250dp",
-	zIndex: "2"
+	zIndex: "2",
+	backgroundColor : "#FFF"
 },
 "#rightMenu": {
 	top: "0dp",
 	right: "0dp",
 	width: "250dp",
-	zIndex: "1"
+	zIndex: "1",
+	backgroundColor : "#FFF"
 },
 "#navview": {
 	top: "0dp",
 	left: "0dp",
 	width : Ti.Platform.displayCaps.platformWidth,
 	height : "44",
-	backgroundImage : '/ds.slideMenu/NavBackground.png',
-	zIndex : "10"
+	backgroundImage : '/ds.slideMenu/NavBackground.png'
 },
 "#movableview": {
 	left: "0",
-	zIndex: "10",
+	zIndex: "3",
 	width : Ti.Platform.displayCaps.platformWidth
 },
 "#contentview": {
@@ -28,14 +29,12 @@
 	width : Ti.Platform.displayCaps.platformWidth,
 	height : Ti.UI.Fill,
 	top : "44",
-	zIndex : "10",
 	backgroundColor : 'white'
 },
 "#shadowview": {
 	shadowColor:"black",
     shadowOffset:{x:"0",y:"0"},
-    shadowRadius:"2.5",
-    ZIndex: "10"
+    shadowRadius:"2.5"
 },
 "#leftButton": {
 	backgroundImage : 'none',

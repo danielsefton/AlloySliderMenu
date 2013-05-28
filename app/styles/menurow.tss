@@ -10,7 +10,8 @@
 },
 "#row": {
   selectedBackgroundColor : "#666",
-  selectedColor: 'white',
+  selectedColor : 'white',
+  backgroundColor : "#F9F9F9",
   backgroundGradient : {
     type : "linear",
     startPoint : {
