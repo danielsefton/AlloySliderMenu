@@ -146,3 +146,14 @@ exports.toggleRightSlider = function() {
 		direction : direction
     });
 }
+
+exports.handleRotation = function() {
+/*
+  	Add the orientation handler in the controller that loads this widget. Like this:
+	Ti.Gesture.addEventListener('orientationchange', function() {
+		$.ds.handleRotation();
+	});
+*/
+	$.movableview.width = $.navview.width = $.contentview.width = Ti.Platform.displayCaps.platformWidth;
+	$.movableview.height = $.navview.height = $.contentview.height = Ti.Platform.displayCaps.platformHeight;
+};
