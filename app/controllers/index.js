@@ -44,7 +44,7 @@ function createSection() {
 	customView.add(customLabel);
 
 	section.headerView = customView;
-	for (var j = 1; j < 4; j++) {
+	for (var j = 0; j < 3; j++) {
 		var args = {
 			title : 'Row ' + j,
 			customView : 'view' + j,
@@ -64,7 +64,7 @@ function rowSelect(e) {
 	}
 }
 
-for (var i = 0; i < 4; i++) {
+for (var i = 0; i < 5; i++) {
 	leftData[i] = createSection();
 	rightData[i] = createSection();
 }
