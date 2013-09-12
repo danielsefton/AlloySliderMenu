@@ -2,7 +2,7 @@ var leftData = [];
 var rightData = [];
 
 function createSection() {
-	var section = Ti.UI.createTableViewSection();
+	var section = Ti.UI.createTableViewSection({ borderColor: '#666' });
 
 	var customView = Ti.UI.createView({
 		height : 'auto',
