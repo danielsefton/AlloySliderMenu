@@ -31,7 +31,7 @@
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
     <guid>67e2afcd-bef9-4f83-9d1d-127630f11140</guid>
-    <property name="ti.ui.defaultunit">system</property>
+    <property name="ti.ui.defaultunit">dp</property>
     <iphone>
         <orientations device="iphone">
             <orientation>Ti.UI.PORTRAIT</orientation>
