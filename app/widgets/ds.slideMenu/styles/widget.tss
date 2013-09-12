@@ -1,3 +1,6 @@
+"#containerview": {
+	top: 0,
+},
 "#leftMenu": {
 	top: 0,
 	left: 0,
@@ -15,26 +18,30 @@
 "#navview": {
 	top: 0,
 	left: 0,
-	width : Ti.Platform.displayCaps.platformWidth,
+	right: 0,
+	width : 320,
 	height : 44,
 	backgroundImage : '/ds.slideMenu/NavBackground.png'
 },
 "#movableview": {
+	top: 0,
 	left: 0,
+	right: 0,
+	width : 320,
 	zIndex: "3",
-	width : Ti.Platform.displayCaps.platformWidth
 },
 "#contentview": {
-	left : 0,
-	width : Ti.Platform.displayCaps.platformWidth,
-	height : Ti.UI.Fill,
 	top : 44,
+	left : 0,
+	right: 0,
+	width: 320,
+	height : Ti.UI.Fill,
 	backgroundColor : 'white'
 },
 "#shadowview": {
 	shadowColor:"black",
-    shadowOffset:{x:"0",y:"0"},
-    shadowRadius:"2.5"
+    	shadowOffset:{x:"0",y:"0"},
+    	shadowRadius:"2.5"
 },
 "#leftButton": {
 	backgroundImage : 'none',
