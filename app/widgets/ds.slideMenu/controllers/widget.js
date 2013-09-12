@@ -1,5 +1,5 @@
 var animateRight = Ti.UI.createAnimation({
-	left : 250,
+	left : 180,
 	curve : Ti.UI.ANIMATION_CURVE_EASE_OUT,
 	duration : 150
 });
@@ -11,7 +11,7 @@ var animateReset = Ti.UI.createAnimation({
 });
 
 var animateLeft = Ti.UI.createAnimation({
-	left : -250,
+	left : -180,
 	curve : Ti.UI.ANIMATION_CURVE_EASE_OUT,
 	duration : 150
 });
@@ -32,13 +32,13 @@ $.movableview.addEventListener('touchend', function(e) {
 		buttonPressed = false;
 		return;
 	}
-	if ($.movableview.left >= 150 && touchRightStarted) {
+	if ($.movableview.left >= 180 && touchRightStarted) {
 		direction = "right";
 		$.leftButton.touchEnabled = false;
 		$.movableview.animate(animateRight);
 		hasSlided = true;
 	}
-	else if ($.movableview.left <= -150 && touchLeftStarted) {
+	else if ($.movableview.left <= -180 && touchLeftStarted) {
 		direction = "left";
 		$.rightButton.touchEnabled = false;
 		$.movableview.animate(animateLeft);
@@ -64,8 +64,8 @@ $.movableview.addEventListener('touchmove', function(e) {
 		y : e.y
 	}, $.containerview);
 	var newLeft = coords.x - touchStartX;
-	if ((touchRightStarted && newLeft <= 250 && newLeft >= 0) || 
-		(touchLeftStarted && newLeft <= 0 && newLeft >= -250)) {
+	if ((touchRightStarted && newLeft <= 180 && newLeft >= 0) || 
+		(touchLeftStarted && newLeft <= 0 && newLeft >= -180)) {
 		$.movableview.left = newLeft;
 	}
 	else {
@@ -74,11 +74,11 @@ $.movableview.addEventListener('touchmove', function(e) {
 		if ((touchRightStarted && newLeft < 0) || (touchLeftStarted && newLeft > 0)) {
 			$.movableview.left = 0;
 		}
-		else if (touchRightStarted && newLeft > 250) {
-			$.movableview.left = 250;
+		else if (touchRightStarted && newLeft > 180) {
+			$.movableview.left = 180;
 		}
-		else if (touchLeftStarted && newLeft < -250) {
-			$.movableview.left = -250;
+		else if (touchLeftStarted && newLeft < -180) {
+			$.movableview.left = -180;
 		}
 	}
 	if (newLeft > 5 && !touchLeftStarted && !touchRightStarted) {
