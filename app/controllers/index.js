@@ -48,7 +48,7 @@ function createSection() {
 		var args = {
 			title : 'Row ' + j,
 			customView : 'view' + j,
-			image : "images/ic_search.png"
+			image : "/images/ic_search.png"
 		};
 		section.add(Alloy.createController('menurow', args).getView());
 	}
