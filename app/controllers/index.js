@@ -1,6 +1,10 @@
 var leftData = [];
 var rightData = [];
 
+if (OS_IOS || OS_ANDROID) {
+	Alloy.Globals.Map = require('ti.map');
+}
+
 function createSection() {
 	var section = Ti.UI.createTableViewSection();
 
