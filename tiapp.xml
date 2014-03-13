@@ -57,7 +57,6 @@
         <theme>default</theme>
     </mobileweb>
     <modules>
-        <module platform="commonjs" version="2.3.0">ti.cloud</module>
         <module platform="android" version="1.0">ti.physicalSizeCategory</module>
     </modules>
     <plugins>
