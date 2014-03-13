@@ -1,5 +1,6 @@
 <Alloy>
 	<View id="view3">
-		<View ns="Ti.Map" id="timap" />
+		<View ns="Alloy.Globals.Map" platform="ios,android" id="timap" />
+		<View ns="Ti.Map" id="timap" platform="mobileweb" />
 	</View>
 </Alloy>
