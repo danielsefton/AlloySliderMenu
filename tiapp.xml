@@ -58,6 +58,8 @@
     </mobileweb>
     <modules>
         <module platform="android" version="1.0">ti.physicalSizeCategory</module>
+        <module platform="iphone">ti.map</module>
+        <module platform="android">ti.map</module>
     </modules>
     <plugins>
         <plugin version="1.0">ti.alloy</plugin>
