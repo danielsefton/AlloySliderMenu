@@ -33,9 +33,9 @@
   }
 },
 "#icon": {
-  width: "38dp",
-  left: "5dp"
+  width: 38,
+  left: 5
 },
 "#title": {
-  left: "48dp"
+  left: 48
 }

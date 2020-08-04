@@ -6,7 +6,7 @@ if (OS_IOS || OS_ANDROID) {
 }
 
 function createSection() {
-	var section = Ti.UI.createTableViewSection();
+	var section = Ti.UI.createTableViewSection({ borderColor: '#666' });
 
 	var customView = Ti.UI.createView({
 		height : 'auto',
@@ -48,11 +48,11 @@ function createSection() {
 	customView.add(customLabel);
 
 	section.headerView = customView;
-	for (var j = 1; j < 4; j++) {
+	for (var j = 0; j < 3; j++) {
 		var args = {
 			title : 'Row ' + j,
 			customView : 'view' + j,
-			image : "images/ic_search.png"
+			image : "/images/ic_search.png"
 		};
 		section.add(Alloy.createController('menurow', args).getView());
 	}
@@ -68,7 +68,7 @@ function rowSelect(e) {
 	}
 }
 
-for (var i = 0; i < 4; i++) {
+for (var i = 0; i < 5; i++) {
 	leftData[i] = createSection();
 	rightData[i] = createSection();
 }
